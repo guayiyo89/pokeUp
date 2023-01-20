@@ -1,0 +1,20 @@
+<h1>Buscar pokemon</h1>
+
+<input
+  type="text"
+  id="searchPokemon"
+  [formControl]="searchPokemon"
+  (keyup.enter)="showPokemon()"
+/>
+<button (click)="showPokemon()">Search</button>
+
+<div *ngIf="load">
+  <p *ngFor="let pokemon of currentPageResults">
+    {{ pokemon.name | titlecase }}
+  </p>
+  <button (click)="showFirstPage()">Inicio</button>
+  <button (click)="beforePage()">Atras</button>
+  {{currentPage}} / {{lastPage}}
+  <button (click)="nextPage()">Siguiente</button>
+  <button (click)="showLastPage()">Final</button>
+</div>
