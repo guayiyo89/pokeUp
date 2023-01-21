@@ -20,6 +20,10 @@
 
 #header {
   border-bottom: 1px solid #ccc;
+  background-color: rgb(38, 97, 207);
+  color: rgb(255, 217, 0);
+  text-align: center;
+  text-transform: capitalize;
 }
 
 #buttons {
@@ -48,6 +52,11 @@ h6 {
   h5 {
     padding-right: 0px;
     text-align: center;
+    font-size: 11pt;
+  }
+
+  .stats {
+    font-size: 9pt;
   }
 }
 
@@ -59,3 +68,7 @@ h6 {
   text-align: right;
 }
 
+.flechaEvo {
+    color: rgb(38, 97, 207);
+    font-weight: bolder;
+}

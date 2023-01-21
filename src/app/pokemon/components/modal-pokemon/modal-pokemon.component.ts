@@ -14,6 +14,7 @@ export class ModalPokemonComponent implements OnInit {
   initialPokeData: any;
   pokemon: any;
   pokemonData: any;
+  evolutionData: any;
   imgPokemon: string = '';
   descripcion: string = '';
   private openSubscribe: Subscription | undefined;
@@ -37,13 +38,20 @@ export class ModalPokemonComponent implements OnInit {
       this.resolveDescription(this.pokemon.flavor_text_entries);
       this.imgPokemon = `${URLS.getImgPokemon}${data.id}.png`;
       this.getMoreData(this.pokemon.id);
+      this.getEvolution(this.pokemon.evolution_chain.url)
     });
   }
 
   getMoreData(id: number) {
     this.pokeSvc.getPokemonData(id).subscribe((data) => {
       this.pokemonData = data;
-      console.log(this.pokemonData)
+    })
+  }
+
+  getEvolution(url: string) {
+    this.pokeSvc.getItemData(url).subscribe((data) => {
+      this.evolutionData = data;
+      console.log(this.evolutionData)
     })
   }
 

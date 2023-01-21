@@ -106,7 +106,6 @@ export class PokemonListComponent implements OnInit {
   }
 
   openModal(pokemon: Base) {
-    console.log(pokemon)
     this.dataSvc.enviarData(pokemon)
     this.modalSwitch = true
   }
