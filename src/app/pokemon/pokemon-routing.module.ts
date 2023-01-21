@@ -3,17 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 const routes: Routes = [
- {
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/buscar-pokemon',
+  },
+  {
     path: 'buscar-pokemon',
     component: PokemonListComponent,
-    children: []
- }
-]
+    children: [],
+  },
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
-
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
 export class PokemonRoutingModule {}
-  

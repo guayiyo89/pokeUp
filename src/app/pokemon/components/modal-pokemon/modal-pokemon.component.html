@@ -1,1 +1,57 @@
-<p>modal-pokemon works!</p>
+<div id="containerModal" (keydown.esc)="close()">
+  <div id="header">
+    <h4>{{ initialPokeData.name }}</h4>
+  </div>
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <img [src]="imgPokemon" alt="img">
+        </div>
+        <div class="col-8">
+          <h5 class="resena"> "{{descripcion}} "</h5>
+        </div>
+      </div>
+
+      <div *ngIf="pokemonData" class="row">
+        <div class="col-6">
+          <h6>Tipo</h6>
+          <div *ngFor="let ty of pokemonData.types">
+            {{ty.type.name | titlecase }}
+          </div>
+        </div>
+        <div class="col-6">
+          <h6>Habilidades</h6>
+          <div *ngFor="let ab of pokemonData.abilities">
+            {{ab.ability.name | titlecase }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="pokemon" class="row">
+        <div class="col-6">
+          <h6>Ataques</h6>
+          <div *ngFor="let type of pokemon.egg_groups">
+            {{type.name | titlecase }}
+          </div>
+        </div>
+        <div class="col-6">
+          <h6>Lugares</h6>
+          <div *ngFor="let place of pokemon.pal_park_encounters">
+            {{place.area.name | titlecase }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h6>Evolución</h6>
+          Evolucion
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="buttons">
+      <button (click)="close()">cerrar</button>
+  </div>
+</div>

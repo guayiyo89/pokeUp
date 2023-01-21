@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 2px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media (max-width: 400px){
+    [class*="col-"] {
+        float: left;
+        padding: 2px;
+        width: 100% !important;
+        text-align: center;
+    }
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+    max-width: 720px;
+}
+
+.botones {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.pokemon-listed {
+    padding: 6px 2px;
+    color: rgb(38, 97, 207);
+    border-bottom: 1px dotted rgb(38, 97, 207);
+    font-weight: 700;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.pokemon-listed:hover {
+    background-color: rgb(218, 237, 247);
+}
+
+.ptop12{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.content-list {
+    min-height: 330px;
+}
+
+.msg-alerta {
+    padding-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button{
+    background-color: rgb(38, 97, 207);
+    color: #fff;
+    border: 1px solid rgb(38, 97, 207);
+    border-radius: 6px;
+    margin: 2px;
+}
+
+input[type=text]
+{
+    color: #000000;
+    height: 28px;
+    padding-left: 10px;
+    width: 80%;
+    text-decoration: none;
+    background-color: rgb(224, 217, 217);
+    border-radius: 5px; /*up to date browsers support this, but you can add prefixes if you want*/
+
+    border: 0;
+}

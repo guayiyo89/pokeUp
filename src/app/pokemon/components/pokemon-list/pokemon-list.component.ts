@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ModalService } from 'src/app/shared/modal.service';
+import { PassingDataService } from 'src/app/shared/passing-data.service';
 import { Base } from '../../interfaces/base';
 import { PokemonService } from '../../services/pokemon.service';
-
 
 @Component({
   selector: 'app-pokemon-list',
@@ -17,27 +18,28 @@ export class PokemonListComponent implements OnInit {
   pageSize = 8;
   lastPage = 1;
   currentPage = 1;
-  load = false;
+  modalSwitch = false
 
-  constructor(private pokeSvc: PokemonService) {}
-
-  ngOnInit(): void {
-    this.getPokemons();
+  constructor(private pokeSvc: PokemonService, public modalSvc: ModalService, private dataSvc: PassingDataService) {
   }
 
-  getPokemons() {
-    this.pokeSvc.getPokemons1stGen().subscribe((resp) => {
-      this.load = true;
-      this.listPokemon = resp.pokemon_species;
-      this.lastPage = this.calcularPaginas(this.listPokemon, this.pageSize);
-      this.results = this.listPokemon.sort((a,b) => a.name.localeCompare(b.name));
+  ngOnInit(): void {
+    this.loadPokemons();
+    this.modalSvc.$modal.subscribe((value) => this.modalSwitch = value);
+  }
+
+  loadPokemons() {
+      this.listPokemon = this.pokeSvc.dataPokemon;
+      this.lastPage = this.calcularPaginas(this.pokeSvc.dataPokemon, this.pageSize);
+      this.results = this.listPokemon.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      this.currentPage = 1;
       this.currentPageResults = this.paginate(
         this.results,
         this.pageSize,
-        this.currentPage
+        1
       );
-      console.log(this.results, 'ORIGINAL', this.lastPage);
-    });
   }
 
   showPokemon() {
@@ -90,11 +92,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   showFirstPage() {
-    this.currentPageResults = this.paginate(
-      this.results,
-      this.pageSize,
-      1
-    );
+    this.currentPageResults = this.paginate(this.results, this.pageSize, 1);
     this.currentPage = 1;
   }
 
@@ -104,6 +102,13 @@ export class PokemonListComponent implements OnInit {
       this.pageSize,
       this.lastPage
     );
-    this.currentPage = this.lastPage
+    this.currentPage = this.lastPage;
   }
+
+  openModal(pokemon: Base) {
+    console.log(pokemon)
+    this.dataSvc.enviarData(pokemon)
+    this.modalSwitch = true
+  }
+
 }
