@@ -1,0 +1,25 @@
+
+<ng-container *ngIf="desktop; else mobile">
+    <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <img src="../../../../../assets/pokeUp_logo.png" alt="" height="55px" />
+            </div>
+            <div class="col-8 text-right">
+              <div *ngFor="let item of menu" [routerLink]="[item.route]" class="menuPedia">{{item.name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>      
+</ng-container>
+
+<ng-template #mobile>
+    <div class="header">
+        <img src="../../../../../assets/pokeUp_logo.png" alt="" height="55px" />
+        <button (click)="setMenuStatus()">///</button>
+    </div>
+    <div class="menuMobile" [ngClass]="{showMenuMobile: !showMenuFlag}">
+        <div *ngFor="let item of menu" [routerLink]="[item.route]" class="itemMobile">{{item.name}}</div>
+    </div>
+</ng-template>

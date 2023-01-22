@@ -110,4 +110,5 @@ export class PokemonListComponent implements OnInit {
     this.modalSwitch = true
   }
 
+
 }

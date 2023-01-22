@@ -1,0 +1,43 @@
+.header{
+    top: 0px;
+    padding-top: 4px;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid rgb(255, 217, 0);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.menuPedia {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    height: 100%;
+    color: rgb(38, 97, 207);
+    font-weight: bolder;
+    padding-top: 12px;
+    cursor: pointer;
+}
+
+.menuPedia:hover {
+    background-color: rgb(255, 217, 0);
+}
+
+.menuMobile {
+    width: 100%;
+    background-color: rgb(255, 217, 0);
+}
+
+.showMenuMobile {
+    display: none;
+}
+
+.itemMobile{
+    color: rgb(38, 97, 207);
+    padding: 2px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+}

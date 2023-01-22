@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/shared/modal.service';
 import { PassingDataService } from 'src/app/shared/passing-data.service';
