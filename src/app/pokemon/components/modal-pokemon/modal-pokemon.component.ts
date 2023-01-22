@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/shared/modal.service';
 import { PassingDataService } from 'src/app/shared/passing-data.service';
 import { URLS } from 'src/environments/urls';
+import { Pokemon, PokemonSpecie } from '../../interfaces/pokemon-specie.interface';
 import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
@@ -33,7 +34,7 @@ export class ModalPokemonComponent implements OnInit {
   }
 
   getDataPokemon() {
-    this.pokeSvc.getItemData(this.initialPokeData.url).subscribe((data) => {
+    this.pokeSvc.getItemData(this.initialPokeData.url).subscribe((data: PokemonSpecie) => {
       this.pokemon = data;
       this.resolveDescription(this.pokemon.flavor_text_entries);
       this.imgPokemon = `${URLS.getImgPokemon}${data.id}.png`;
@@ -43,7 +44,7 @@ export class ModalPokemonComponent implements OnInit {
   }
 
   getMoreData(id: number) {
-    this.pokeSvc.getPokemonData(id).subscribe((data) => {
+    this.pokeSvc.getPokemonData(id).subscribe((data: Pokemon) => {
       this.pokemonData = data;
     })
   }
@@ -51,7 +52,6 @@ export class ModalPokemonComponent implements OnInit {
   getEvolution(url: string) {
     this.pokeSvc.getItemData(url).subscribe((data) => {
       this.evolutionData = data;
-      console.log(this.evolutionData)
     })
   }
 
