@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(38, 97, 207, 0.336);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #containerModal {
+    width: 512px;
+    height: auto;
+    box-shadow: 5px 5px 6px rgb(65, 62, 62);
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  #header {
+    border-bottom: 1px solid #ccc;
+    background-color: rgb(38, 97, 207);
+    color: rgb(255, 217, 0);
+    text-align: center;
+    text-transform: capitalize;
+  }
+  
+  #buttons {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    bottom: 0px !important;
+  }

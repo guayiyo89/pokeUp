@@ -1,0 +1,16 @@
+<body *ngIf="noConnection$ | async">
+    <div id="containerModal">
+        <div id="header">No hay conexión</div>
+      
+        <div id="content">
+          <div class="container">
+            Asegurate que tu conexión a Internet funcione correctamente para acceder a
+            todo el contenido de PokeUp!
+          </div>
+        </div>
+      
+        <div id="buttons">
+          <button (click)="close()">cerrar</button>
+        </div>
+      </div>
+</body>
