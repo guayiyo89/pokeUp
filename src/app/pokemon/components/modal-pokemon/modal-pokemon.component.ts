@@ -38,6 +38,7 @@ export class ModalPokemonComponent implements OnInit {
       this.pokemon = data;
       this.resolveDescription(this.pokemon.flavor_text_entries);
       this.imgPokemon = `${URLS.getImgPokemon}${data.id}.png`;
+      console.log(this.imgPokemon)
       this.getMoreData(this.pokemon.id);
       this.getEvolution(this.pokemon.evolution_chain.url)
     });

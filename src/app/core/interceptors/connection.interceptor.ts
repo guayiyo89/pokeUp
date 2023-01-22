@@ -12,17 +12,14 @@ import { ModalService } from 'src/app/shared/modal.service';
 @Injectable()
 export class ConnectionInterceptor implements HttpInterceptor {
   constructor(private conectionSvc: ConnectionService, public modalSvc: ModalService) {}
-  retry = {
-    count: 1,
-    delay: 1000,
-    status: [500],
-  };
+
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>>{
     if(!navigator.onLine) {
       this.modalSvc.$modal.emit(false)
+      //window.alert('No posees conexion a internet')
       this.conectionSvc.showConnectionError();
     }
     return next.handle(request)

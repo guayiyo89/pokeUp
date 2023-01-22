@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from './core/services/loading.service';
 import { PokemonService } from './pokemon/services/pokemon.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { PokemonService } from './pokemon/services/pokemon.service';
 export class AppComponent {
   title = 'pokedex-angular';
 
-  constructor(private pokeSvc: PokemonService) {}
+  constructor(private pokeSvc: PokemonService, public loadingSvc: LoadingService) {}
 
   ngOnInit() {
     this.loadPokemon();

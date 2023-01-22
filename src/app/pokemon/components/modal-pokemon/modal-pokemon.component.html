@@ -4,9 +4,9 @@
   </div>
   <div id="content">
     <div class="container">
-      <div class="row">
+      <div *ngIf="imgPokemon.length > 0" class="row">
         <div class="col-4">
-          <img [src]="imgPokemon" alt="img" />
+          <img src="{{imgPokemon}}" alt="img" />
         </div>
         <div class="col-8">
           <h5 class="resena">"{{ descripcion }} "</h5>

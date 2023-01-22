@@ -13,6 +13,7 @@ import { ErrorScreenComponent } from './shared/components/error-screen/error-scr
 import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
 import { ConnectionComponent } from './core/components/connection/connection.component';
 import { ConnectionInterceptor } from './core/interceptors/connection.interceptor';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
