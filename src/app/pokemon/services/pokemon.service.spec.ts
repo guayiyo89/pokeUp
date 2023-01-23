@@ -34,7 +34,7 @@ describe('PokemonService', () => {
     })
 
     const testReq = httpTesting.expectOne(URLS.pokemon1stGen);
-    testReq.flush(expectedData, {status: 200})
+    testReq.flush(expectedData, {status: 200, statusText: 'listo'})
   })
 
   test('#should get the type data from getTypes', () => {
@@ -45,7 +45,7 @@ describe('PokemonService', () => {
     })
 
     const testReq = httpTesting.expectOne(URLS.getTypes);
-    testReq.flush(expectedData, {status: 200})
+    testReq.flush(expectedData, {status: 200, statusText: 'listo'})
   })
 
   test('#should get the type data from getHabitats', () => {
@@ -56,7 +56,7 @@ describe('PokemonService', () => {
     })
 
     const testReq = httpTesting.expectOne(URLS.getHabitats);
-    testReq.flush(expectedData, {status: 200})
+    testReq.flush(expectedData, {status: 200, statusText: 'listo'})
   })
 
   test('#should get the type data from getRegions', () => {
@@ -67,7 +67,18 @@ describe('PokemonService', () => {
     })
 
     const testReq = httpTesting.expectOne(URLS.getRegion);
-    testReq.flush(expectedData, {status: 200})
+    testReq.flush(expectedData, {status: 200, statusText: 'listo'})
+  })
+
+  test('#should get the Pokemon data data from getPokemonData', () => {
+    const expectedData: MainBase = mock;
+
+    client.get(URLS.getPokemonData).subscribe((data) => {
+      expect(data).toEqual(expectedData)
+    })
+
+    const testReq = httpTesting.expectOne(URLS.getPokemonData);
+    testReq.flush(expectedData, {status: 200, statusText: 'listo'})
   })
 
 });

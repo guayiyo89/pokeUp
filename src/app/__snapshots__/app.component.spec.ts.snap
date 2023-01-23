@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent When initializing #should do match with snapshot 1`] = `
+"<app-header></app-header><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--><div><router-outlet></router-outlet></div><app-connection></app-connection><app-footer></app-footer>"
+`;

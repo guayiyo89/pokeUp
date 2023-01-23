@@ -20,14 +20,12 @@ export class AppComponent {
   }
 
   loadPokemon() {
-    this.loadingSvc.showLoadingScreen(true)
     this.pokeSvc
       .getPokemons1stGen()
       .subscribe((resp) => this.pokeSvc.saveData(resp.pokemon_species));
   }
 
   loadHabitat() {
-    this.loadingSvc.showLoadingScreen(true)
     this.pokeSvc
       .getHabitat()
       .subscribe((resp) => this.pokeSvc.saveHabitatData(resp.results));
