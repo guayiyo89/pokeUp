@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ModalService } from 'src/app/shared/modal.service';
-import { PassingDataService } from 'src/app/shared/passing-data.service';
+import { ModalService } from '../../../../app/shared/modal.service';
+import { PassingDataService } from '../../../../app/shared/passing-data.service';
 import { Base } from '../../interfaces/base';
 import { PokemonService } from '../../services/pokemon.service';
 
@@ -18,28 +18,35 @@ export class PokemonListComponent implements OnInit {
   pageSize = 8;
   lastPage = 1;
   currentPage = 1;
-  modalSwitch = false
+  modalSwitch = false;
 
-  constructor(private pokeSvc: PokemonService, public modalSvc: ModalService, private dataSvc: PassingDataService) {
-  }
+  constructor(
+    private pokeSvc: PokemonService,
+    public modalSvc: ModalService,
+    private dataSvc: PassingDataService
+  ) {}
 
   ngOnInit(): void {
     this.loadPokemons();
-    this.modalSvc.$modal.subscribe((value) => this.modalSwitch = value);
+    this.modalSvc.$modal.subscribe((value) => (this.modalSwitch = value));
   }
 
   loadPokemons() {
-      this.listPokemon = this.pokeSvc.dataPokemon;
-      this.lastPage = this.calcularPaginas(this.pokeSvc.dataPokemon, this.pageSize);
-      this.results = this.listPokemon.sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-      this.currentPage = 1;
-      this.currentPageResults = this.paginate(
-        this.results,
-        this.pageSize,
-        1
-      );
+    this.listPokemon = this.sortResult(this.pokeSvc.dataPokemon);
+    this.lastPage = this.calcularPaginas(
+      this.pokeSvc.dataPokemon,
+      this.pageSize
+    );
+    this.results = this.listPokemon;
+    this.currentPage = 1;
+    this.currentPageResults = this.paginate(this.results, this.pageSize, 1);
+  }
+
+  sortResult(result: any[]) {
+    let sortedResult = result.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    return sortedResult;
   }
 
   showPokemon() {
@@ -106,9 +113,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   openModal(pokemon: Base) {
-    this.dataSvc.enviarData(pokemon)
-    this.modalSwitch = true
+    this.dataSvc.enviarData(pokemon);
+    this.modalSwitch = true;
   }
-
-
 }
