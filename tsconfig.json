@@ -8,14 +8,16 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "es2015",
     "module": "es2020",
+    "types": ["jest", "node"],
     "lib": [
       "es2018",
       "dom"
@@ -25,6 +27,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "fullTemplateTypeCheck": true
   }
 }

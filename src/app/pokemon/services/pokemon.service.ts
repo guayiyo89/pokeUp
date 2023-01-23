@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { URLS } from 'src/environments/urls';
+import { URLS } from '../../../environments/urls';
 import { Base, MainBase } from '../interfaces/base';
 import { MainGeneration } from '../interfaces/generation-i.interface';
+import { Pokemon } from '../interfaces/pokemon.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +52,7 @@ export class PokemonService {
     return this.http.get<MainGeneration>(URLS.pokemon1stGen);
   }
 
-  getPokemonData(id: number): Observable<any> {
+  getPokemonData(id: number): Observable<Pokemon> {
     let url = `${URLS.getPokemonData}/${id}`;
     return this.http.get<any>(url);
   }

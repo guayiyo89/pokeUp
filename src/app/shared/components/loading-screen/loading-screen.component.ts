@@ -5,9 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './loading-screen.component.html',
   styleUrls: ['./loading-screen.component.css']
 })
-export class LoadingScreenComponent{
+export class LoadingScreenComponent implements OnInit{
 
   constructor() { }
 
+  ngOnInit(): void {
+    console.log('lalalalallalal')
+  }
 
 }

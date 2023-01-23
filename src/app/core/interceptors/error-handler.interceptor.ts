@@ -21,22 +21,24 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> | Observable<any> {
-    console.log("Passed through the interceptor in request");
+    console.log('Passed through the interceptor in request');
     return next.handle(request).pipe(
       retryWhen((error) =>
         error.pipe(
           concatMap((e, count) => {
-            console.log("Passed through the interceptor in response");
+            console.log('Passed through the interceptor in response');
             switch (e.status) {
               case 404:
                 this.router.navigate(['/404']);
                 break;
               case 500:
-                this.router.navigate(['/noService']);
+                window.alert(
+                  'Error en el servicio, lamentamos los inconvenientes.'
+                );
                 break;
             }
 
-            return throwError(e)
+            return throwError(e);
           })
         )
       )
