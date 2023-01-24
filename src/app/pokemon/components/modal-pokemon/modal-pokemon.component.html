@@ -1,0 +1,68 @@
+<div id="containerModal" (keydown.esc)="close()">
+  <div id="header">
+    <h4>{{ initialPokeData.name }}</h4>
+  </div>
+  <div id="content">
+    <div class="container">
+      <div *ngIf="imgPokemon.length > 0" class="row">
+        <div class="col-4">
+          <img src="{{imgPokemon}}" alt="img" />
+        </div>
+        <div class="col-8">
+          <h5 class="resena">"{{ descripcion }} "</h5>
+        </div>
+      </div>
+
+      <div *ngIf="pokemonData" class="row">
+        <div class="col-6">
+          <h6>Tipo</h6>
+          <div *ngFor="let ty of pokemonData.types">
+            {{ ty.type.name | titlecase }}
+          </div>
+        </div>
+        <div class="col-6">
+          <h6>Habilidades</h6>
+          <div *ngFor="let ab of pokemonData.abilities">
+            {{ ab.ability.name | titlecase }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="pokemon && pokemonData" class="row">
+        <div class="col-6">
+          <h6>Stats</h6>
+          <div class="stats" *ngFor="let st of pokemonData.stats">
+            <span style="font-weight: bold"
+              >{{ st.stat.name | titlecase }}:
+            </span>
+            {{ st.base_stat }}
+          </div>
+        </div>
+        <div class="col-6">
+          <h6>Lugares</h6>
+          <div *ngFor="let place of pokemon.pal_park_encounters">
+            {{ place.area.name | titlecase }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-centered" *ngIf="evolutionData">
+          <h6>Evolución</h6>
+          {{ evolutionData.chain.species.name }}
+          <span *ngIf="evolutionData.chain.evolves_to">
+            <span class="flechaEvo"> > </span>
+            {{ evolutionData.chain.evolves_to[0].species.name }}
+          </span>
+          <span *ngIf="evolutionData.chain.evolves_to[0].evolves_to[0]">
+            <span class="flechaEvo"> > </span>
+            {{ evolutionData.chain.evolves_to[0].evolves_to[0].species.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="buttons">
+    <button (click)="close()">cerrar</button>
+  </div>
+</div>

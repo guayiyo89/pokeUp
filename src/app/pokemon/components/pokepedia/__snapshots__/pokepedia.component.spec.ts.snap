@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokepediaComponent When initializing #should do match with snapshot 1`] = `
+"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"col-12 title\\"><h2>Pokepedia!</h2><p>En esta seccion puedes encontrar un listado de informacion de lugares, regiones, clasificación, etc. </p></div><div class=\\"col-4\\"><h4>Habitats</h4><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"[object Object],[object Object\\"
+}--><div> cave </div><div> forest </div></div><div class=\\"col-4\\"><h4>Regiones</h4><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"[object Object],[object Object\\"
+}--><div> chile </div><div> san marino </div></div><div class=\\"col-4\\"><h4>Tipos</h4><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"[object Object],[object Object\\"
+}--><div> grandes </div><div> chicos </div></div></div></div>"
+`;

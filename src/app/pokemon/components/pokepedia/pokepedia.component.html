@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 title">
+            <h2>Pokepedia!</h2>
+            <p>En esta seccion puedes encontrar un listado de informacion de lugares, regiones, clasificación, etc. </p>
+        </div>
+
+        <div class="col-4">
+            <h4>Habitats</h4>
+            <div *ngFor="let item of habitats">
+                {{item.name}}
+            </div>
+        </div>
+        <div class="col-4">
+            <h4>Regiones</h4>
+            <div *ngFor="let item of regiones">
+                {{item.name}}
+            </div>
+        </div>
+        <div class="col-4">
+            <h4>Tipos</h4>
+            <div *ngFor="let item of tipos">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</div>
+

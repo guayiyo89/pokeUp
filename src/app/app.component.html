@@ -1,1 +1,9 @@
-lalalal
+<app-header></app-header>
+<ng-container *ngIf="loadingSvc.loader$ | async">
+  <app-loading-screen></app-loading-screen>
+</ng-container>
+<div [hidden]="loadingSvc.loader$ | async">
+    <router-outlet></router-outlet>
+</div>
+<app-connection></app-connection>
+<app-footer></app-footer>

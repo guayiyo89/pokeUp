@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="content">
+    <h1>Buscar pokemon</h1>
+    <div class="botones">
+      <input
+        placeholder="buscar por nombre"
+        type="text"
+        id="searchPokemon"
+        [formControl]="searchPokemon"
+        (keyup.enter)="showPokemon()"
+      />
+    </div>
+
+    <div class="botones ptop12">
+      <button id="buscar" (click)="showPokemon()">Buscar</button>
+      <button id="restart" (click)="loadPokemons()">Reestablecer</button>
+    </div>
+
+    <div class="content-list">
+      <div
+        class="pokemon-listed"
+        (click)="openModal(pokemon)"
+        *ngFor="let pokemon of currentPageResults"
+      >
+        {{ pokemon.name | titlecase }}
+      </div>
+      <div class="msg-alerta" *ngIf="currentPageResults.length == 0">
+        No hay resultados que coincidan.
+      </div>
+    </div>
+
+    <div class="pagination" *ngIf="currentPageResults.length != 0">
+      <button id="btnInicio" (click)="showFirstPage()">Inicio</button>
+      <button id="btnAtras" (click)="beforePage()"><<</button>
+      {{ currentPage }} / {{ lastPage }}
+      <button id="btnSgte" (click)="nextPage()">>></button>
+      <button id="btnFin" (click)="showLastPage()">Final</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal_class_open" *ngIf="modalSwitch == true">
+  <app-modal-pokemon></app-modal-pokemon>
+</div>

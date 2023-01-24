@@ -1,0 +1,10 @@
+.text-centered{
+    padding-top: 20%;
+    text-align: center;
+}
+
+.info{
+    margin: 0 auto;
+    font-size: 14pt;
+    width: 80%;
+}
