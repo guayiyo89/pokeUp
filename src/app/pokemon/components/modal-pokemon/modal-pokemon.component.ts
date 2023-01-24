@@ -53,6 +53,7 @@ export class ModalPokemonComponent implements OnInit {
 
   getEvolution(url: string) {
     this.pokeSvc.getItemData(url).subscribe((data) => {
+      console.log(data);
       this.evolutionData = data;
     })
   }

@@ -41,3 +41,15 @@
     text-align: center;
     cursor: pointer;
 }
+
+[class*="kol-"] {
+    float: left;
+    padding: 2px;
+}
+
+.kol-2 {width: 16.66%; text-align: center;}
+.kol-3 {width: 25%;}
+.kol-9 {width: 75%;}
+.kol-10 {width: 83.33%; text-align: center;}
+
+

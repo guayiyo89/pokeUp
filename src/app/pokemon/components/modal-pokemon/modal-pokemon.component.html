@@ -50,8 +50,10 @@
         <div class="col-12 text-centered" *ngIf="evolutionData">
           <h6>Evolución</h6>
           {{ evolutionData.chain.species.name }}
-          <span class="flechaEvo"> > </span>
-          {{ evolutionData.chain.evolves_to[0].species.name }}
+          <span *ngIf="evolutionData.chain.evolves_to">
+            <span class="flechaEvo"> > </span>
+            {{ evolutionData.chain.evolves_to[0].species.name }}
+          </span>
           <span *ngIf="evolutionData.chain.evolves_to[0].evolves_to[0]">
             <span class="flechaEvo"> > </span>
             {{ evolutionData.chain.evolves_to[0].evolves_to[0].species.name }}
