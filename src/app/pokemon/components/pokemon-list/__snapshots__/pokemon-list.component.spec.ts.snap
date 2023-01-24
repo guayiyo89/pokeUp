@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonListComponent When initializing #should do match with snapshot 1`] = `
+"<div class=\\"container\\"><div class=\\"content\\"><h1>Buscar pokemon</h1><div class=\\"botones\\"><input id=\\"searchPokemon\\" placeholder=\\"buscar por nombre\\" type=\\"text\\" ng-reflect-form=\\"[object Object]\\" class=\\"ng-untouched ng-pristine ng-valid\\"></div><div class=\\"botones ptop12\\"><button id=\\"buscar\\">Buscar</button><button id=\\"restart\\">Reestablecer</button></div><div class=\\"content-list\\"><!--bindings={
+  \\"ng-reflect-ng-for-of\\": \\"[object Object],[object Object\\"
+}--><div class=\\"pokemon-listed\\"> Abra </div><div class=\\"pokemon-listed\\"> Charizard </div><div class=\\"pokemon-listed\\"> Dragizard </div><div class=\\"pokemon-listed\\"> Eevee </div><div class=\\"pokemon-listed\\"> Meowth </div><div class=\\"pokemon-listed\\"> Pikachu </div><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}--></div><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"true\\"
+}--><div class=\\"pagination\\"><button id=\\"btnInicio\\">Inicio</button><button id=\\"btnAtras\\">&lt;&lt;</button> 1 / 1 <button id=\\"btnSgte\\">&gt;&gt;</button><button id=\\"btnFin\\">Final</button></div></div></div><!--bindings={
+  \\"ng-reflect-ng-if\\": \\"false\\"
+}-->"
+`;

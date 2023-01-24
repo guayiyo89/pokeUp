@@ -46,6 +46,9 @@ describe('PokemonListComponent', () => {
   });
 
   describe('When initializing', () => {
+    test('#should do match with snapshot', () => {
+      expect(compiled.innerHTML).toMatchSnapshot();
+    });
     test('# should call loadPokemons method', () => {
       const spy = jest.spyOn(component, 'loadPokemons');
       component.ngOnInit();
@@ -172,6 +175,45 @@ describe('PokemonListComponent', () => {
       expect(result).toStrictEqual(filteredRes);
     })
 
-    
+    test('# showFirstPage is called when Inicio is clicked', () => {
+      const spy = jest.spyOn(component, 'showFirstPage');
+      const button = fixture.debugElement.query(By.css('#btnInicio'));
+
+      button.nativeElement.click();
+      fixture.detectChanges();
+
+      expect(spy).toHaveBeenCalled;
+      expect(component.currentPage).toBe(1);
+    })
+
+    test('# showLastPage is called when Final is clicked', () => {
+      const spy = jest.spyOn(component, 'showLastPage');
+      const button = fixture.debugElement.query(By.css('#btnFin'));
+
+      button.nativeElement.click();
+      fixture.detectChanges();
+
+      expect(spy).toHaveBeenCalled;
+    })
+
+    test('# nextPage is called when >> is clicked', () => {
+      const spy = jest.spyOn(component, 'nextPage');
+      const button = fixture.debugElement.query(By.css('#btnSgte'));
+
+      button.nativeElement.click();
+      fixture.detectChanges();
+
+      expect(spy).toHaveBeenCalled;
+    })
+
+    test('# beforePage is called when << is clicked', () => {
+      const spy = jest.spyOn(component, 'beforePage');
+      const button = fixture.debugElement.query(By.css('#btnAtras'));
+
+      button.nativeElement.click();
+      fixture.detectChanges();
+
+      expect(spy).toHaveBeenCalled;
+    })
   })
 });

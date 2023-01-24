@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ModalService } from 'src/app/shared/modal.service';
-import { PassingDataService } from 'src/app/shared/passing-data.service';
+import { ModalService } from '../../../../app/shared/modal.service';
+import { PassingDataService } from '../../../../app/shared/passing-data.service';
 import { URLS } from '../../../../environments/urls';
 import { PokemonSpecie } from '../../interfaces/pokemon-specie.interface';
 import { Pokemon } from '../../interfaces/pokemon.interface';

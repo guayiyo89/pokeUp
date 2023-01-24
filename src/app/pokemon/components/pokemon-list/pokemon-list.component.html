@@ -30,11 +30,11 @@
     </div>
 
     <div class="pagination" *ngIf="currentPageResults.length != 0">
-      <button class="button-pag" (click)="showFirstPage()">Inicio</button>
-      <button (click)="beforePage()"><<</button>
+      <button id="btnInicio" (click)="showFirstPage()">Inicio</button>
+      <button id="btnAtras" (click)="beforePage()"><<</button>
       {{ currentPage }} / {{ lastPage }}
-      <button (click)="nextPage()">>></button>
-      <button (click)="showLastPage()">Final</button>
+      <button id="btnSgte" (click)="nextPage()">>></button>
+      <button id="btnFin" (click)="showLastPage()">Final</button>
     </div>
   </div>
 </div>

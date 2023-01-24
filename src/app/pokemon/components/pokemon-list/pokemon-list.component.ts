@@ -43,9 +43,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   sortResult(result: any[]) {
-    let sortedResult = result.sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
+    let sortedResult = result.sort((a, b) => a.name.localeCompare(b.name));
     return sortedResult;
   }
 
